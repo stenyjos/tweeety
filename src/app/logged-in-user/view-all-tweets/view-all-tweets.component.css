@@ -3,8 +3,8 @@
 }
 
 .tweet {
-    border: 1px solid black;
-    padding: 10px;
+    padding: 1rem;
+    border: 1px solid #b2bec3;
     line-height: 30px;
     border-radius: 20px;
     margin-bottom: 20px;

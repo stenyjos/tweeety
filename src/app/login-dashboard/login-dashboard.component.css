@@ -2,7 +2,7 @@
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    background-image: url('../../assets/img/backgroung-image.png');
+    background-image: url('../../assets/img/background-image.png');
     background-color: rgba(255, 255, 255, 0.295);
     background-blend-mode: lighten;
     background-repeat: no-repeat;
@@ -14,7 +14,7 @@
 
 .parent {
     width: 100%;
-    height: 80%;
+    /* height: 80%; */
     margin: 5%;
     border-radius: 50px;
     display: flex;
@@ -25,17 +25,19 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .header-box {
-    background-color: rgb(231, 228, 222);
+    /* background-color: rgb(231, 228, 222); */
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50px;
-    height: 30%;
-    width: 70%;
+    /* border-radius: 50px; */
+    /* height: 30%; */
+    /* width: 70%; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #636e72;
 }
 
 .icon-image {
@@ -48,6 +50,7 @@
     width: 50%;
     height: 100%;
     display: flex;
+    justify-content: flex-end;
 }
 
 .heading h1 {
@@ -56,11 +59,9 @@
 }
 
 .form-box {
-    border: 1px solid rgba(173, 168, 168, 0.801);
     height: 90%;
     width: 80%;
     border-radius: 50px;
-    background-color: rgb(236, 231, 223, 0.9);
     padding: 5%;
 }
 
@@ -70,19 +71,20 @@
 
 :host::ng-deep .login-button .login-option .p-buttonset .p-button {
     margin-right: 30px;
-    border: 1px solid rgba(70, 68, 68, 0.856);
     border-radius: 5px;
     padding: 10px;
     height: 20px;
     width: 100px;
     font-size: 20px;
-    color: #000000;
+    color: white;
+    background-color: #b2bec3;
     transition: background-color 0.5s, color 0s;
 }
 
 :host::ng-deep .login-button .login-option .p-buttonset .p-highlight {
-    background-color: rgb(235, 100, 11);
+    background-color: #0984e3;
     color: #ffffff;
+    border: 0px;
 }
 
 .options {
@@ -92,11 +94,11 @@
 .form-body {
     height: 75%;
     padding: 5%;
-    margin: 2% 5%;
+    margin-top: 5rem;
+    margin-left: 2rem;
     border-radius: 20px;
-    border: 1px solid rgb(190, 182, 182);
     display: flex;
-    align-items: center;
+    align-items: center;;
 }
 
 .forgot-password {
@@ -125,7 +127,8 @@
 }
 
 .button-row .p-button-rounded {
-    background-color: rgb(235, 100, 11);
+    background-color: #00b894;
+    border: 0px;
     color: white;
     border-radius: 10px;
     height: 30px;
@@ -165,4 +168,43 @@ form {
     height: 20%;
     margin: 15px;
     font-weight: bolder;
+}
+
+.signup-input {
+    height: 2.0rem;
+    padding: 0.5rem;
+    border: 0px;
+    background-color: #dfe6e9;
+}
+
+.login-input {
+    height: 2.0rem;
+    padding: 0.5rem;
+    border: 0px;
+    background-color: #dfe6e9;
+}
+
+.loginLabel {
+    color: #636e72;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.submit-button {
+    padding: 18px;
+    font-weight: bolder;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    position: absolute;
+
+}
+
+.tab-button {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 120px;
 }

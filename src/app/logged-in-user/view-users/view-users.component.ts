@@ -24,7 +24,7 @@ export class ViewUsersComponent implements OnInit {
           this.userData=data;
           this.userData.forEach((element:any={}) =>{
             element.userName = element.firstName+' '+element.lastName;
-            element.loginId = element.firstName+element.userId;
+            element.loginId = element.firstName+element.userId.substr(0, 4);
           });
       }
       });

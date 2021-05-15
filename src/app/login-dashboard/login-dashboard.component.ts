@@ -98,7 +98,7 @@ export class LoginDashboardComponent implements OnInit, OnDestroy {
         this.checkPassword();
       }
     });
-    // tslint:disable-next-line: deprecation
+    
     this.sgnupCnfrmPassSub = this.signUpForm.controls.confirmPassword.valueChanges.subscribe((data: string) => {
       if (data) {
         this.confirmPassword = data;
@@ -159,37 +159,7 @@ export class LoginDashboardComponent implements OnInit, OnDestroy {
     });
   }
 
-  onChangePassword(): void {
-
-    const requestObject = {    
-        emailId: this.forgotPasswordForm.controls.email.value,
-        oldPassword:  this.forgotPasswordForm.controls.oldPassword.value,
-        newPassword :this.forgotPasswordForm.controls.newPassword.value,      
-    };
-
-    if(requestObject.oldPassword === requestObject.newPassword)
-    {
-      this.showPopUp('New Password cannot be same as Old Password', 'Error');
-      
-    }
-    else{
-    this.loginService.resetPassword(requestObject).subscribe(serviceData => {
-      if (serviceData == true) {
-      this.showPopUp('Password has been changed successfully', 'Success');
-      this.selectedOptions = 0;
-      this.resetForm();
-      }
-      else {
-        this.showPopUp('Incorrect old password', 'Error');
-      }
-    },
-    err=>
-    {
-      this.showPopUp('Incorrect old password', 'Error');
-    }
-    );
-  }
-  }
+ 
 
   onForgotPasswordClick(): void {
     this.selectedOptions = 2;

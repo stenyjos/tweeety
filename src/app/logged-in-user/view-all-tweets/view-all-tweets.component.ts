@@ -51,19 +51,20 @@ export class ViewAllTweetsComponent implements OnInit {
 
   }
  async  getAllTweets(){
-    debugger
+  setTimeout(() => {
    let i,j
-  await   this.tweetMessageService.viewAllTweets().subscribe(
+   this.tweetMessageService.viewAllTweets().subscribe(
+    
       data =>{
         if (Object.keys(data).length > 0) {
         this.allTweetData = data;
-        debugger
+      
         this.allTweetData.forEach((element:any={}) => {
           this.allTweetUsers.forEach(index =>{
             if(element.userId == index.userId)
             {
               element.firstName = index.firstName;
-              element.userName = element.firstName+element.userId;
+              element.userName = element.firstName+element.userId.substr(0, 4);
               element.postTime = element.createdAt;
             }
           });
@@ -72,6 +73,7 @@ export class ViewAllTweetsComponent implements OnInit {
         this.allTweetData;
         }
       });
+    }, 300);
   }
 
  async getAllUserDetails()

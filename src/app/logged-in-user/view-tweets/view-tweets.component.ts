@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Subject, Subscription } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { FacadeDashboardService } from 'src/app/service/facade-dashboard.service';
 import { TweetMessageService } from 'src/app/service/tweet-message.service';
 
 @Component({
@@ -16,10 +19,22 @@ export class ViewTweetsComponent implements OnInit {
   userDetails:any;
   @Input()
   module = '';
-
+  private ngUnSubscribe = new Subject();
+  sgninSrvceSub: Subscription = new Subscription();
   constructor(
     private tweetMessageService :TweetMessageService,
-  ) {}
+    private facadeDashboardService:FacadeDashboardService
+  ) {
+    if(this.userDetails == undefined)
+    {
+      this.sgninSrvceSub = this.facadeDashboardService.loginObservable.pipe(takeUntil(this.ngUnSubscribe)).subscribe(serviceData => {
+        if (Object.keys(serviceData).length > 0) {
+          this.userDetails = serviceData; 
+         
+        }
+        });
+    }
+  }
 
   ngOnInit(): void {
  this.userDetails;
@@ -65,7 +80,7 @@ initializeDetails()
   {
   this.tweetData.push(
   {
-  loginId : this.userDetails.firstName+this.userDetails.userId,
+  loginId : this.userDetails.firstName+this.userDetails.userId.substr(0, 4),
   userName : this.userDetails.firstName,
   postTime : this.myTweet[i].createdAt,
   tweet : this.myTweet[i].tweetMsg
